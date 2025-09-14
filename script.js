@@ -51,4 +51,38 @@ for (const btn of callButtons) {
   });
 }
 
+//clear
+const clearBtn = document.getElementsByClassName('btn-clear')[0];
+if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      historyDiv.innerHTML = '';
+    });
+}
+
+//hearts
+
+let count = 0;
+const btnHearts = document.getElementsByClassName('heart-button');
+for (const btn of btnHearts) {
+    btn.addEventListener('click', function(){
+        count =count+1;
+        document.getElementById('heart-count').innerText = count;
+        return;
+    })
+}
+
+// copy count
+let Copycount = 0;
+const btnCopy = document.getElementsByClassName('btn-copy');
+for (const btn of btnCopy) {
+    btn.addEventListener('click', function(){
+        const selectedCard = btn.closest('.card');
+        const serviceNumber = selectedCard.querySelector('.service-number');
+        const ShowServiceNumber = serviceNumber.textContent;
+        Copycount = Copycount+1;
+        document.getElementById('copy').innerText = Copycount;
+        alert(`Number Copied: ${ShowServiceNumber}`);
+        return;
+    })
+}
 
